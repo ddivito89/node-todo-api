@@ -1,19 +1,23 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 var Todo = mongoose.model('Todo', {
-  text:{
+  text: {
     type: String,
     required: true,
     minlength: 1,
     trim: true
   },
-  completed:{
+  completed: {
     type: Boolean,
     default: false
   },
-  completedAt:{
+  completedAt: {
     type: Number,
     default: null
+  },
+  _creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true
   }
 });
 
